@@ -17,17 +17,7 @@ body { font-family: 'Montserrat', sans-serif; }
 .navbar { background: rgba(0,0,0,0.9); }
 .logo { height: 44px; 
       }
- /* FORCE LEFT ALIGNMENT ON MOBILE NAV */
-@media (max-width: 991px) {
-  .navbar-collapse {
-    text-align: left;
-  }
-
-  .navbar-nav {
-    align-items: flex-start;
-  }
-}
-     
+ 
 
 .nav-icons i {
   font-size: 1.3rem;
@@ -128,29 +118,34 @@ footer a:hover { color: #f0a500; }
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container position-relative">
 
-    <!-- LEFT LINKS -->
-    <div class="collapse navbar-collapse" id="navLinks">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-      </ul>
-    </div>
+  <!-- LEFT LINKS -->
+<div class="collapse navbar-collapse" id="navLinks">
+  <ul class="navbar-nav mb-2 mb-lg-0 w-100 text-start">
+    <li class="nav-item">
+      <a class="nav-link active ps-0" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link ps-0" href="#">Shop</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link ps-0" href="#">About Us</a>
+    </li>
+  </ul>
+</div>
 
     <!-- CENTER LOGO -->
     <a class="navbar-brand position-absolute start-50 translate-middle-x" href="#">
-      <img src="https://cdn.wapka.org/00gsza/306b50e724b9ba6e386be6c0fe16c957/img_20260118_175116.png" class="logo" alt="THS Logo">
+      <img src="https://cdn.wapka.org/00gsza/306b50e724b9ba6e386be6c0fe16c957/img_20260118_175116.png" style="height:50px" class="logo" alt="THS Logo">
     </a>
 
-    <!-- TOGGLER -->
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+    <button class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navLinks">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- RIGHT ICONS -->
-    <div class="d-flex align-items-center ms-auto">
-      <i class="bi bi-person me-3"></i>
-      <div class="cart-wrapper me-3">
+    <div class="nav-icons d-flex align-items-center ms-auto">
+      <i class="bi bi-person"></i>
+      <div class="cart-wrapper">
         <i class="bi bi-bag"></i>
         <span class="cart-count">3</span>
       </div>
