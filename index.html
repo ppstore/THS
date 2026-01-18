@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THS Clothing</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Montserrat', sans-serif; }
+
+/* NAVBAR */
+.navbar { background: rgba(0,0,0,0.9); }
+.logo { height: 44px; }
+
+.nav-icons i {
+  font-size: 1.3rem;
+  margin-left: 18px;
+  cursor: pointer;
+  color: white;
+}
+
+.cart-wrapper { position: relative; }
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #f0a500;
+  color: black;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+/* HERO */
+.carousel-item {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3.3rem;
+  font-weight: 700;
+  animation: fadeUp 1s ease;
+}
+
+.hero-content p {
+  max-width: 600px;
+  animation: fadeUp 1.4s ease;
+}
+
+.btn-ths {
+  background: #f0a500;
+  color: black;
+  font-weight: 600;
+  padding: 12px 34px;
+  animation: fadeUp 1.8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CATEGORY */
+.category-card img { height: 300px; object-fit: cover; }
+
+/* INFO STRIP */
+.info-strip i { font-size: 2rem; color: #f0a500; }
+
+/* PRODUCTS */
+.product-card img { height: 280px; object-fit: cover; }
+
+/* NEWSLETTER */
+.newsletter {
+  background: #111;
+  color: white;
+}
+
+/* FOOTER */
+footer { background: #0b0b0b; color: #ccc; }
+footer a { color: #ccc; text-decoration: none; }
+footer a:hover { color: #f0a500; }
+
+.social-icons i { font-size: 1.3rem; margin-right: 15px; }
+.payment-icons i { font-size: 2rem; margin-right: 10px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container position-relative">
+
+    <!-- LEFT LINKS -->
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- CENTER LOGO -->
+    <a class="navbar-brand position-absolute start-50 translate-middle-x" href="#">
+      <img src="ths-logo.png" class="logo" alt="THS Logo">
+    </a>
+
+    <button class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- RIGHT ICONS -->
+    <div class="nav-icons d-flex align-items-center ms-auto">
+      <i class="bi bi-person"></i>
+      <div class="cart-wrapper">
+        <i class="bi bi-bag"></i>
+        <span class="cart-count">3</span>
+      </div>
+      <i class="bi bi-search"></i>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active" style="background-image:url('https://images.unsplash.com/photo-1521334884684-d80222895322')">
+      <div class="hero-content">
+        <div>
+          <h1>THS Streetwear</h1>
+          <p>Premium clothing crafted for confidence and everyday style.</p>
+          <a href="#" class="btn btn-ths mt-4">Shop Collection</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f')">
+      <div class="hero-content">
+        <div>
+          <h1>Modern Essentials</h1>
+          <p>Minimal design. Maximum impact.</p>
+          <a href="#" class="btn btn-ths mt-4">Explore Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519')">
+      <div class="hero-content">
+        <div>
+          <h1>Wear Your Identity</h1>
+          <p>Top-notch quality that lasts.</p>
+          <a href="#" class="btn btn-ths mt-4">View Styles</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SHOP BY CATEGORY -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Shop by Category</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card category-card"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b"><div class="card-body text-center fw-bold">T-Shirts</div></div></div>
+      <div class="col-md-4"><div class="card category-card"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><div class="card-body text-center fw-bold">Hoodies</div></div></div>
+      <div class="col-md-4"><div class="card category-card"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><div class="card-body text-center fw-bold">Jackets</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row text-center info-strip">
+      <div class="col-md-4"><i class="bi bi-arrow-left-right"></i><h5 class="mt-3">Exchanges & Returns</h5><p>Return within 24 business hours for store credit.</p></div>
+      <div class="col-md-4"><i class="bi bi-truck"></i><h5 class="mt-3">Worldwide Shipping</h5><p>24–48 hrs locally, 7–14 days internationally.</p></div>
+      <div class="col-md-4"><i class="bi bi-award"></i><h5 class="mt-3">Top-Notch Quality</h5><p>Premium materials built to last.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ITEMS -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Featured Items</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1585386959984-a41552262d43"><div class="card-body text-center"><h6>THS Hoodie</h6><p class="fw-bold">$45.00</p></div></div></div>
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1"><div class="card-body text-center"><h6>THS Tee</h6><p class="fw-bold">$25.00</p></div></div></div>
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"><div class="card-body text-center"><h6>THS Jacket</h6><p class="fw-bold">$70.00</p></div></div></div>
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1585238342028-4bbc6a22b0f4"><div class="card-body text-center"><h6>THS Cap</h6><p class="fw-bold">$20.00</p></div></div></div>
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1593032465171-8e3f4c6cbb3f"><div class="card-body text-center"><h6>THS Sweatshirt</h6><p class="fw-bold">$50.00</p></div></div></div>
+      <div class="col-md-4"><div class="card product-card"><img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f"><div class="card-body text-center"><h6>THS Pants</h6><p class="fw-bold">$60.00</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter py-5 text-center">
+  <div class="container">
+    <h3>Sign up for our newsletter</h3>
+    <p>Enjoy <strong>10% off</strong> your first order</p>
+    <form class="row justify-content-center mt-3">
+      <div class="col-md-4">
+        <input type="email" class="form-control" placeholder="Enter your email">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-ths w-100">Subscribe</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="ths-logo.png" style="height:40px" class="mb-3">
+        <p>THS is a premium clothing brand delivering modern, durable and stylish apparel.</p>
+        <div class="social-icons">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-twitter-x"></i>
+          <i class="bi bi-facebook"></i>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <p>Email: support@thsclothing.com</p>
+        <p>Phone: +1 800 000 0000</p>
+        <p>Warri, Delta State</p>
+
+        <div class="payment-icons">
+          <i class="bi bi-credit-card"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-bank"></i>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <p class="text-center small">&copy; 2026 THS Clothing. All Rights Reserved. Designed by Pship Services.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
