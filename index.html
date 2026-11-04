@@ -4,21 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101827">
-  <title>Project Delivery Notice</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Website development project payment notice.">
+  <title>Website Development - Payment Notice</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0c1421;
-      --panel: #121f30;
-      --gold: #d6b779;
-      --text: #f4f1e9;
-      --muted: #a6b0bf;
-      --border: rgba(255,255,255,.09);
+      --primary: #183b65;
+      --primary-light: #eaf2fb;
+      --blue: #2563eb;
+      --dark: #172337;
+      --text: #435166;
+      --muted: #7b8798;
+      --border: #e6eaf0;
+      --background: #f5f7fa;
+      --white: #ffffff;
+      --orange: #c77b17;
+      --orange-bg: #fff7e9;
+      --green: #16804a;
+      --green-bg: #eaf8f0;
     }
 
     * {
@@ -29,114 +37,121 @@
 
     body {
       min-height: 100vh;
-      background:
-        radial-gradient(ellipse at 50% 0%, #24344a 0%, transparent 48%),
-        var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      background: var(--background);
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 30px 18px;
+      padding: 35px 20px;
     }
 
     .container {
       width: 100%;
-      max-width: 760px;
+      max-width: 790px;
       margin: auto;
     }
 
-    .topbar {
+    /* Header */
+
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
 
     .brand {
-      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .7px;
+    }
+
+    .brand-icon {
+      width: 37px;
+      height: 37px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 19px;
+    }
+
+    .header-label {
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--gold);
+      color: var(--muted);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    .reference {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-    }
+    /* Main card */
 
     .card {
-      background: linear-gradient(145deg, #172538, #101a29);
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 55px 48px;
-      box-shadow: 0 30px 90px rgba(0,0,0,.35);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      border-radius: 16px;
+      padding: 55px 55px 45px;
+      box-shadow: 0 12px 45px rgba(24, 43, 68, .055);
     }
 
     .status {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      border: 1px solid rgba(214,183,121,.3);
-      background: rgba(214,183,121,.08);
-      color: var(--gold);
-      padding: 9px 14px;
-      border-radius: 30px;
+      padding: 9px 13px;
+      background: var(--orange-bg);
+      color: var(--orange);
+      border: 1px solid #f4e1c0;
+      border-radius: 6px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.3px;
+      letter-spacing: .6px;
       text-transform: uppercase;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 12px var(--gold);
+      background: var(--orange);
     }
 
     .eyebrow {
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 2px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(35px, 6vw, 54px);
-      line-height: 1.15;
-      font-weight: 600;
+      color: var(--primary);
+      font-size: clamp(34px, 5.5vw, 49px);
+      line-height: 1.19;
+      letter-spacing: -1.9px;
+      font-weight: 800;
+      max-width: 620px;
       margin-bottom: 20px;
-      max-width: 590px;
     }
 
     h1 span {
-      color: var(--gold);
+      color: var(--blue);
     }
 
     .intro {
-      color: var(--muted);
-      font-size: 15px;
+      max-width: 610px;
+      color: var(--text);
+      font-size: 14px;
       line-height: 1.9;
-      max-width: 590px;
     }
 
     .divider {
@@ -145,125 +160,170 @@
       margin: 35px 0;
     }
 
-    .progress-title {
+    /* Development progress */
+
+    .section-heading {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 15px;
-      margin-bottom: 17px;
+      margin-bottom: 15px;
     }
 
-    .progress-title strong {
+    .section-heading strong {
+      color: var(--dark);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .progress-title span {
-      color: var(--gold);
-      font-size: 12px;
+    .complete-label {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .progress-track {
-      height: 5px;
-      background: rgba(255,255,255,.09);
+      width: 100%;
+      height: 7px;
+      background: #edf0f4;
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 25px;
+      margin-bottom: 32px;
     }
 
     .progress-fill {
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, #a88a50, #e6cc94);
+      background: var(--blue);
       border-radius: 20px;
     }
 
-    .info-box {
-      background: rgba(255,255,255,.035);
+    /* Payment information */
+
+    .payment-box {
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 22px;
+      border-radius: 10px;
+      padding: 10px 22px;
+      background: #fff;
     }
 
-    .info-row {
+    .payment-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 15px;
-      padding: 12px 0;
+      padding: 17px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .info-row:last-child {
-      border: none;
+    .payment-row:last-child {
+      border-bottom: none;
     }
 
-    .info-label {
-      color: var(--muted);
+    .payment-label {
+      color: var(--text);
       font-size: 13px;
+      font-weight: 500;
     }
 
-    .info-value {
-      font-size: 13px;
-      font-weight: 600;
+    .payment-value {
+      font-size: 12px;
+      font-weight: 700;
       text-align: right;
     }
 
-    .completed {
-      color: #8ed6ad;
+    .received {
+      color: var(--green);
+    }
+
+    .outstanding {
+      color: var(--orange);
     }
 
     .pending {
-      color: var(--gold);
+      color: var(--blue);
     }
+
+    /* Information notice */
 
     .notice {
       margin-top: 28px;
-      padding: 20px;
-      border-left: 3px solid var(--gold);
-      background: rgba(214,183,121,.055);
-      border-radius: 0 10px 10px 0;
+      padding: 22px;
+      background: var(--primary-light);
+      border: 1px solid #dce8f7;
+      border-radius: 9px;
     }
 
-    .notice strong {
-      display: block;
+    .notice-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
       font-size: 13px;
-      margin-bottom: 8px;
+      font-weight: 700;
+      margin-bottom: 11px;
+    }
+
+    .notice-icon {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d9e8fa;
+      color: var(--blue);
+      border-radius: 6px;
+      font-size: 14px;
     }
 
     .notice p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.8;
+      color: #52657c;
+      font-size: 12px;
+      line-height: 1.9;
     }
 
+    /* Footer */
+
     .footer {
-      margin-top: 35px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 15px;
+      margin-top: 25px;
       color: var(--muted);
-      font-size: 11px;
-      line-height: 1.7;
+      font-size: 10px;
+      line-height: 1.8;
     }
 
     .footer-brand {
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 1px;
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: .7px;
     }
 
-    @media(max-width: 600px) {
+    @media (max-width: 600px) {
+      body {
+        padding: 22px 14px;
+      }
+
       .card {
-        padding: 38px 23px;
+        padding: 36px 23px;
       }
 
-      .topbar {
-        margin-bottom: 24px;
-      }
-
-      .reference {
+      .header-label {
         font-size: 9px;
+      }
+
+      .brand {
+        font-size: 12px;
+      }
+
+      h1 {
+        letter-spacing: -1.2px;
+      }
+
+      .payment-box {
+        padding: 8px 15px;
       }
 
       .footer {
@@ -275,84 +335,125 @@
 </head>
 
 <body>
+
   <main class="container">
 
-    <header class="topbar">
-      <div class="brand">PROJECT NOTICE</div>
-      <div class="reference">DEVELOPMENT &amp; DELIVERY</div>
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">⌘</div>
+        <span>WEB DEVELOPMENT</span>
+      </div>
+
+      <div class="header-label">
+        Project Status Notice
+      </div>
     </header>
 
     <section class="card">
 
       <div class="status">
         <span class="status-dot"></span>
-        Project delivery on hold
+        Outstanding Payment
       </div>
 
-      <p class="eyebrow">Service &amp; Project Update</p>
+      <p class="eyebrow">Website Development Project</p>
 
       <h1>
-        Final Delivery Is <span>Temporarily On Hold.</span>
+        Website Access Is <span>Temporarily Restricted.</span>
       </h1>
 
       <p class="intro">
-        This project has reached its development completion stage.
-        However, final delivery and continued deployment are currently
-        pending settlement of the outstanding balance under the
-        agreed project payment terms.
+        The development of this website has been completed.
+        However, continued hosting and public access are currently
+        on hold pending settlement of the outstanding development
+        payment in accordance with the agreed project terms.
       </p>
 
       <div class="divider"></div>
 
-      <div class="progress-title">
-        <strong>Project Development</strong>
-        <span>Completed</span>
+      <div class="section-heading">
+        <strong>Website Development Status</strong>
+        <span class="complete-label">Completed</span>
       </div>
 
       <div class="progress-track">
         <div class="progress-fill"></div>
       </div>
 
-      <div class="info-box">
+      <div class="payment-box">
 
-        <div class="info-row">
-          <span class="info-label">Initial payment</span>
-          <span class="info-value completed">Received</span>
+        <div class="payment-row">
+          <span class="payment-label">
+            Initial Development Payment
+          </span>
+
+          <span class="payment-value received">
+            ✓ Received
+          </span>
         </div>
 
-        <div class="info-row">
-          <span class="info-label">Final payment</span>
-          <span class="info-value pending">Awaiting settlement</span>
+        <div class="payment-row">
+          <span class="payment-label">
+            Outstanding Balance
+          </span>
+
+          <span class="payment-value outstanding">
+            Awaiting Payment
+          </span>
         </div>
 
-        <div class="info-row">
-          <span class="info-label">Final handover</span>
-          <span class="info-value pending">Pending</span>
+        <div class="payment-row">
+          <span class="payment-label">
+            Website Hosting Status
+          </span>
+
+          <span class="payment-value pending">
+            Temporarily Restricted
+          </span>
+        </div>
+
+        <div class="payment-row">
+          <span class="payment-label">
+            Project Completion
+          </span>
+
+          <span class="payment-value received">
+            ✓ Completed
+          </span>
         </div>
 
       </div>
 
       <div class="notice">
-        <strong>Why is this website unavailable?</strong>
+
+        <div class="notice-heading">
+          <span class="notice-icon">i</span>
+          Important Project Information
+        </div>
+
         <p>
-          In accordance with the agreed project payment arrangement,
-          deployment and final handover are temporarily paused until
-          the outstanding balance has been settled and confirmed.
-          Access will be restored in accordance with the project agreement.
+          This website has been temporarily restricted due to an
+          outstanding balance associated with its development.
+          Public access and continued hosting will be restored
+          following confirmation of the agreed payment.
+          We appreciate your understanding.
         </p>
+
       </div>
 
     </section>
 
     <footer class="footer">
+
       <div>
-        <span class="footer-brand">PROJECT MANAGEMENT</span><br>
-        Professional Development Services
+        <span class="footer-brand">WEB DEVELOPMENT SERVICES</span><br>
+        Website Design, Development &amp; Technical Solutions
       </div>
 
       <div>
         © <span id="year"></span> All rights reserved.
       </div>
+
     </footer>
 
   </main>
@@ -361,5 +462,6 @@
     document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
+
 </body>
 </html>
