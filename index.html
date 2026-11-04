@@ -1,296 +1,365 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THS Clothing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Project Delivery Notice</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-<style>
-body { font-family: 'Montserrat', sans-serif; }
+  <style>
+    :root {
+      --bg: #0c1421;
+      --panel: #121f30;
+      --gold: #d6b779;
+      --text: #f4f1e9;
+      --muted: #a6b0bf;
+      --border: rgba(255,255,255,.09);
+    }
 
-/* NAVBAR */
-.navbar { background: rgba(0,0,0,0.9); }
-.logo { height: 44px; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, #24344a 0%, transparent 48%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 18px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .reference {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #172538, #101a29);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 55px 48px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(214,183,121,.3);
+      background: rgba(214,183,121,.08);
+      color: var(--gold);
+      padding: 9px 14px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(35px, 6vw, 54px);
+      line-height: 1.15;
+      font-weight: 600;
+      margin-bottom: 20px;
+      max-width: 590px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 590px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 35px 0;
+    }
+
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .progress-title strong {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .progress-title span {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .progress-track {
+      height: 5px;
+      background: rgba(255,255,255,.09);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .progress-fill {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #a88a50, #e6cc94);
+      border-radius: 20px;
+    }
+
+    .info-box {
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child {
+      border: none;
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .info-value {
+      font-size: 13px;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .completed {
+      color: #8ed6ad;
+    }
+
+    .pending {
+      color: var(--gold);
+    }
+
+    .notice {
+      margin-top: 28px;
+      padding: 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(214,183,121,.055);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .notice strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .notice p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer-brand {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    @media(max-width: 600px) {
+      .card {
+        padding: 38px 23px;
       }
- 
 
-.nav-icons i {
-  font-size: 1.3rem;
-  margin-left: 18px;
-  cursor: pointer;
-  color: white;
-}
+      .topbar {
+        margin-bottom: 24px;
+      }
 
-.cart-wrapper { position: relative; }
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -10px;
-  background: #f0a500;
-  color: black;
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 50%;
-  font-weight: 700;
-}
+      .reference {
+        font-size: 9px;
+      }
 
-/* HERO */
-.carousel-item {
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-.carousel-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 3.3rem;
-  font-weight: 700;
-  animation: fadeUp 1s ease;
-}
-
-.hero-content p {
-  max-width: 600px;
-  animation: fadeUp 1.4s ease;
-}
-
-.btn-ths {
-  background: #f0a500;
-  color: black;
-  font-weight: 600;
-  padding: 12px 34px;
-  animation: fadeUp 1.8s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* CATEGORY */
-.category-card img { height: 300px; object-fit: cover; }
-
-/* INFO STRIP */
-.info-strip i { font-size: 2rem; color: #f0a500; }
-
-/* PRODUCTS */
-.product-card img { height: 280px; object-fit: cover; }
-
-/* NEWSLETTER */
-.newsletter {
-  background: #111;
-  color: white;
-}
-
-/* FOOTER */
-footer { background: #0b0b0b; color: #ccc; }
-footer a { color: #ccc; text-decoration: none; }
-footer a:hover { color: #f0a500; }
-
-.social-icons i { font-size: 1.3rem; margin-right: 15px; }
-.payment-icons i { font-size: 2rem; margin-right: 10px; }
-</style>
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="container">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container position-relative">
+    <header class="topbar">
+      <div class="brand">PROJECT NOTICE</div>
+      <div class="reference">DEVELOPMENT &amp; DELIVERY</div>
+    </header>
 
-  <!-- LEFT LINKS -->
-<div class="collapse navbar-collapse" id="navLinks">
-  <ul class="navbar-nav mb-2 mb-lg-0 w-100 text-start">
-    <li class="nav-item">
-      <a class="nav-link active ps-0" href="#">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link ps-0" href="#">Shop</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link ps-0" href="#">About Us</a>
-    </li>
-  </ul>
-</div>
+    <section class="card">
 
-    <!-- CENTER LOGO -->
-    <a class="navbar-brand position-absolute start-50 translate-middle-x" href="#">
-      <img src="https://cdn.wapka.org/00gsza/306b50e724b9ba6e386be6c0fe16c957/img_20260118_175116.png" style="height:50px" class="logo" alt="THS Logo">
-    </a>
-
-    <button class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navLinks">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- RIGHT ICONS -->
-    <div class="nav-icons d-flex align-items-center ms-auto">
-      <i class="bi bi-person"></i>
-      <div class="cart-wrapper">
-        <i class="bi bi-bag"></i>
-        <span class="cart-count">3</span>
+      <div class="status">
+        <span class="status-dot"></span>
+        Project delivery on hold
       </div>
-      <i class="bi bi-search"></i>
-    </div>
 
-  </div>
-</nav>
+      <p class="eyebrow">Service &amp; Project Update</p>
 
+      <h1>
+        Final Delivery Is <span>Temporarily On Hold.</span>
+      </h1>
 
-<!-- HERO SLIDER -->
-<div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
+      <p class="intro">
+        This project has reached its development completion stage.
+        However, final delivery and continued deployment are currently
+        pending settlement of the outstanding balance under the
+        agreed project payment terms.
+      </p>
 
-    <div class="carousel-item active" style="background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f')">
-      <div class="hero-content">
-        <div>
-          <h1>THS Collections</h1>
-          <p>Premium clothing crafted for confidence and everyday style.</p>
-          <a href="#" class="btn btn-ths mt-4">Shop Collection</a>
+      <div class="divider"></div>
+
+      <div class="progress-title">
+        <strong>Project Development</strong>
+        <span>Completed</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+
+      <div class="info-box">
+
+        <div class="info-row">
+          <span class="info-label">Initial payment</span>
+          <span class="info-value completed">Received</span>
         </div>
-      </div>
-    </div>
 
-    <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f')">
-      <div class="hero-content">
-        <div>
-          <h1>Modern Essentials</h1>
-          <p>Minimal design. Maximum impact.</p>
-          <a href="#" class="btn btn-ths mt-4">Explore Now</a>
+        <div class="info-row">
+          <span class="info-label">Final payment</span>
+          <span class="info-value pending">Awaiting settlement</span>
         </div>
-      </div>
-    </div>
 
-    <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519')">
-      <div class="hero-content">
-        <div>
-          <h1>Wear Your Identity</h1>
-          <p>Top-notch quality that lasts.</p>
-          <a href="#" class="btn btn-ths mt-4">View Styles</a>
+        <div class="info-row">
+          <span class="info-label">Final handover</span>
+          <span class="info-value pending">Pending</span>
         </div>
-      </div>
-    </div>
 
-  </div>
-</div>
-
-<!-- SHOP BY CATEGORY -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Shop by Category</h2>
-    <div class="row g-4">
-      <div class="col-md-4"><div class="card category-card"><img src="https://cdn.wapka.org/00gsz5/f5ee0ba11de9ef813b274329f73145c6/picsart_26-01-18_17-34-24-457.jpg"><div class="card-body text-center fw-bold">T-Shirts</div></div></div>
-      <div class="col-md-4"><div class="card category-card"><img src="https://cdn.wapka.org/00gsz3/5fcaf7de105c5d114229c7616265fb72/picsart_26-01-18_17-22-37-553.jpg"><div class="card-body text-center fw-bold">Hoodies</div></div></div>
-      <div class="col-md-4"><div class="card category-card"><img src="https://cdn.wapka.org/00gsz2/8387953298de1b56e4647d57f4ed54bd/picsart_26-01-18_17-12-49-210.jpg"><div class="card-body text-center fw-bold">Jackets</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- INFO STRIP -->
-<section class="bg-light py-5">
-  <div class="container">
-    <div class="row text-center info-strip">
-      <div class="col-md-4"><i class="bi bi-arrow-left-right"></i><h5 class="mt-3">Exchanges & Returns</h5><p>Return within 24 business hours for store credit.</p></div>
-      <div class="col-md-4"><i class="bi bi-truck"></i><h5 class="mt-3">Worldwide Shipping</h5><p>24–48 hrs locally, 7–14 days internationally.</p></div>
-      <div class="col-md-4"><i class="bi bi-award"></i><h5 class="mt-3">Top-Notch Quality</h5><p>Premium materials built to last.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED ITEMS -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Featured Items</h2>
-    <div class="row g-4">
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz1/6e4135d78ba16c70663ea81bb200e9b6/picsart_26-01-18_17-08-05-984.jpg"><div class="card-body text-center"><h6>THS Hoodie</h6><p class="fw-bold">$60.00</p></div></div></div>
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz4/2d37b39599493ec6cb5259864787d515/picsart_26-01-18_17-33-45-926.jpg"><div class="card-body text-center"><h6>THS T-shirt</h6><p class="fw-bold">$25.00</p></div></div></div>
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz2/8387953298de1b56e4647d57f4ed54bd/picsart_26-01-18_17-12-49-210.jpg"><div class="card-body text-center"><h6>THS Jacket</h6><p class="fw-bold">$70.00</p></div></div></div>
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz7/34d775ea0644d6ebbfb48e0fb6a4220a/picsart_26-01-18_17-41-43-535.jpg"><div class="card-body text-center"><h6>THS Cap</h6><p class="fw-bold">$20.00</p></div></div></div>
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz8/52a5f0aa9dc4eaca11cd30fea1a79ef4/picsart_26-01-18_17-44-22-769.jpg"><div class="card-body text-center"><h6>THS Sweatshirt</h6><p class="fw-bold">$50.00</p></div></div></div>
-      <div class="col-md-4"><div class="card product-card"><img src="https://cdn.wapka.org/00gsz9/830a87351d710be418b4cabe7b30cf0f/picsart_26-01-18_17-46-24-551.jpg"><div class="card-body text-center"><h6>THS Pants</h6><p class="fw-bold">$60.00</p></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter py-5 text-center">
-  <div class="container">
-    <h3>Sign up for our newsletter</h3>
-    <p>Enjoy <strong>10% off</strong> your first order</p>
-    <form class="row justify-content-center mt-3">
-      <div class="col-md-4">
-        <input type="email" class="form-control" placeholder="Enter your email">
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-ths w-100">Subscribe</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="pt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <img src="https://cdn.wapka.org/00gsza/306b50e724b9ba6e386be6c0fe16c957/img_20260118_175116.png" style="height:50px" class="mb-3">
-        <p>THS is a premium clothing brand delivering modern, durable and stylish apparel.</p>
-        <div class="social-icons">
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-twitter-x"></i>
-          <i class="bi bi-facebook"></i>
-        </div>
       </div>
 
-      <div class="col-md-4">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Shipping & Returns</a></li>
-          <li><a href="#">Size Guide</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
+      <div class="notice">
+        <strong>Why is this website unavailable?</strong>
+        <p>
+          In accordance with the agreed project payment arrangement,
+          deployment and final handover are temporarily paused until
+          the outstanding balance has been settled and confirmed.
+          Access will be restored in accordance with the project agreement.
+        </p>
       </div>
 
-      <div class="col-md-4">
-        <h5>Contact</h5>
-        <p>Email: support@thsclothing.com</p>
-        <p>Phone: +1 800 000 0000</p>
-        <p>Warri, Delta State</p>
+    </section>
 
-        <div class="payment-icons">
-          <i class="bi bi-credit-card"></i>
-          <i class="bi bi-paypal"></i>
-          <i class="bi bi-bank"></i>
-        </div>
+    <footer class="footer">
+      <div>
+        <span class="footer-brand">PROJECT MANAGEMENT</span><br>
+        Professional Development Services
       </div>
-    </div>
 
-    <hr>
-    <p class="text-center small">&copy; 2026 THS Clothing. All Rights Reserved. Designed by Pship Services.</p>
-  </div>
-</footer>
+      <div>
+        © <span id="year"></span> All rights reserved.
+      </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
